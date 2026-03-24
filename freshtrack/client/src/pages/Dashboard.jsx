@@ -37,7 +37,7 @@ export default function Dashboard() {
     setSummaryLoading(true)
     setSummaryError(null)
     try {
-      const res = await axios.get(`${API_BASE}/dashboard-summary`, { signal })
+      const res = await axios.get(`${API_BASE}/dashboard`, { signal })
       setSummary(res.data)
     } catch (e) {
       if (e.name === 'CanceledError') return

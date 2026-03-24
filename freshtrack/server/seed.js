@@ -11,7 +11,7 @@ async function seed() {
     `✅ Seeded ${summary.products} products, ${summary.inventoryBatches} inventory batches, ${summary.salesRecords} sales records`
   )
 
-  await conn.close()
+  process.exit()
 }
 
 seed().catch(async (e) => {
