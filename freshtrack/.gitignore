@@ -1,0 +1,9 @@
+# Node modules
+node_modules/
+
+# Local environment variables
+server/.env
+client/.env
+
+# Vite output
+dist/
