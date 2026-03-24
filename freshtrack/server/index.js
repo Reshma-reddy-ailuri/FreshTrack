@@ -41,21 +41,22 @@ app.use((err, req, res, next) => {
 
 async function start() {
   const conn = await connectMongo()
+
   if (conn.mode === 'memory') {
     const summary = await seedDatabase()
     console.log(
       `✅ (In-memory) Seeded ${summary.products} products, ${summary.inventoryBatches} inventory batches, ${summary.salesRecords} sales records`
     )
   }
-  const PORT = process.env.PORT || 5000;
 
-  app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`);
-  });
+  const PORT = process.env.PORT || 5000
+
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on ${PORT}`)
+  })
 }
 
 start().catch((e) => {
   console.error('❌ Failed to start server', e)
   process.exit(1)
 })
-
