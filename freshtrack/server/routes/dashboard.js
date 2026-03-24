@@ -5,7 +5,7 @@ const { calculateDaysToExpiry } = require('../utils/businessLogic')
 
 const router = express.Router()
 
-router.get('/dashboard-summary', async (req, res, next) => {
+router.get('/dashboard', async (req, res, next) => {
   try {
     const now = new Date()
     now.setHours(0, 0, 0, 0)
