@@ -20,6 +20,11 @@ app.get('/api/health', (req, res) => {
   res.json({ ok: true, service: 'freshtrack', time: new Date().toISOString() })
 })
 
+
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 app.use('/api/freshtrack', dashboardRoutes)
 app.use('/api/freshtrack', expiryRoutes)
 app.use('/api/freshtrack', suggestionsRoutes)
@@ -42,11 +47,11 @@ async function start() {
       `✅ (In-memory) Seeded ${summary.products} products, ${summary.inventoryBatches} inventory batches, ${summary.salesRecords} sales records`
     )
   }
-  const port = Number(process.env.PORT || 5000)
+  const PORT = process.env.PORT || 5000;
 
-  app.listen(port, () => {
-    console.log(`✅ FreshTrack server running on http://localhost:${port}`)
-  })
+  app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
+  });
 }
 
 start().catch((e) => {
